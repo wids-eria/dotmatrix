@@ -55,6 +55,7 @@ alias gme='git me'
 alias gmv='git mv'
 alias gpull='git pull'
 alias gpush='git push'
+alias greset='git reset --hard HEAD && git clean -fd'
 alias grm='git rm'
 alias gst='git status'
 alias gtr="git tr"
