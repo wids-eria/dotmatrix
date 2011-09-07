@@ -141,7 +141,7 @@ function besdb {
   bundle_command "dbconsole" "$@"
 }
 
-if [[ -s /Users/randland/.rvm/scripts/rvm ]] ; then source /Users/randland/.rvm/scripts/rvm ; fi
+if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
 rvm use 1.9.2@global
 
 hitch() {

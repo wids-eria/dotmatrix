@@ -12,6 +12,7 @@ set background=dark
 set backupdir=~/.vimbackupdir,~/tmp,~/,.
 set directory=~/.vimbackupdir,~/tmp,~/,.
 set expandtab
+set filetype=sh
 set guifont=Monaco:h16
 set guioptions-=T guioptions-=e guioptions-=L guioptions-=r
 set hlsearch
@@ -24,6 +25,7 @@ set ruler
 set shell=bash
 set shiftwidth=2
 set showmatch
+set sts=2
 set tabstop=2
 set tildeop
 set visualbell

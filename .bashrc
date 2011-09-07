@@ -1,5 +1,3 @@
-vim:set ft=sh sw=2 sts=2:
-
 # Store 10,000 history entries
 export HISTSIZE=10000
 # Don't store duplicates
@@ -113,11 +111,5 @@ bind 'set bind-tty-special-chars off'
 bind '"\ep": history-search-backward'
 bind '"\en": history-search-forward'
 bind '"\C-w": backward-kill-word'
-
-git_completion='/usr/local/Cellar/git/1.7*/etc/bash_completion.d/git-completion.bash'
-
-if [ -f $git_completion ]; then
-  source $git_completion
-fi
 
 [ ! -f "$HOME/.bashrc.local" ] || . "$HOME/.bashrc.local"
