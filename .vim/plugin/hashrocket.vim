@@ -11,7 +11,7 @@ if $HASHROCKET_DIR == ''
   let $HASHROCKET_DIR = substitute(system("bash -i -c 'echo \"$HASHROCKET_DIR\"'"),'\n$','','')
 endif
 if $HASHROCKET_DIR == ''
-  let $HASHROCKET_DIR = expand('~/hashrocket')
+  let $HASHROCKET_DIR = expand('~/dev')
 endif
 
 function! s:HComplete(A,L,P)
