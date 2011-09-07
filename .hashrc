@@ -1,9 +1,6 @@
 # ~/.hashrc
 # vim:set ft=sh sw=2 sts=2:
 
-[ -e "$HASHROCKET_DIR" ] || HASHROCKET_DIR="$HOME/hashrocket"
-export HASHROCKET_DIR
-
 for dir in /opt/local/bin /usr/local/bin "$HOME/bin"; do
   case "$PATH:" in
     *:"$dir":*) PATH="`echo "$PATH"|sed -e "s#:$dir##"`" ;;
@@ -267,21 +264,6 @@ stc() {
     exec s3cmd "$@"
   fi
   )
-}
-
-script_rails() {
-  if [ -f "`rails_root`/script/rails" ]; then
-    "`rails_root`/script/rails" "$@"
-  else
-    local name
-    name="$1"
-    shift
-    "`rails_root`/script/$name" "$@"
-  fi
-}
-
-twiki () {
-  rake db:migrate && rake db:migrate:redo && rake db:test:prepare
 }
 
 alias sc='script_rails console'
