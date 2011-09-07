@@ -16,6 +16,8 @@ augroup vimrc
   autocmd GuiEnter * set columns=120 lines=70 number
 augroup END
 
+map <silent> <C-s> :NERDTree<CR><C-w>l:NERDTreeFind<CR>
+
 if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
 endif
