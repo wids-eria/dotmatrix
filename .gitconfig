@@ -1,54 +1,66 @@
 [alias]
-	st = status
-	ci = commit
-	co = checkout
-	cp = cherry-pick
-	put = push origin HEAD
-	fixup = !sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -
-	squash = !sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -
-	ri = rebase --interactive
-	br = branch
-	pruneremote = remote prune origin
-	tree = log --graph --oneline --decorate --color --all
-	tr = log --graph --oneline --decorate --color
-	unpushed = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git log origin/$PROJ_BRANCH..HEAD"
-	unpulled = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git fetch && git log HEAD..origin/$PROJ_BRANCH"
+  br = branch
+  ci = commit
+  cl = clone
+  co = checkout
+  cp = cherry-pick
+  df = diff -a -w
+  dw = diff -a -w --word-diff
+  lg = log --graph  --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=local
+  fixup = !sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+  list = log --oneline --color --decorate
+  li = log --oneline --color
+  ls = log --stat
+  me == merge --no-ff
+  pruneremote = remote prune origin
+  put = push origin HEAD
+  ri = rebase --interactive
+  squash = !sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+  st = status
+  tr = log --graph --oneline --decorate --color
+  tree = log --graph --oneline --decorate --color --all
+  tweak = commit --amend -C HEAD
+  unpulled = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git fetch && git log HEAD..origin/$PROJ_BRANCH"
+  unpushed = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git log origin/$PROJ_BRANCH..HEAD"
 [branch]
-	autosetuprebase = always
+  autosetuprebase = always
 [color]
-	ui = auto
+  branch = auto
+  diff = auto
+  status = auto
+  ui = auto
 [core]
-	excludesfile = ~/.cvsignore
-	editor = vim
-	whitespace = warn
-[github]
-	user = hashrocketeer
+  excludesfile = ~/.cvsignore
+  editor = vim
+  whitespace = warn
 [help]
-	autocorrect = 10
+  autocorrect = 10
 [interactive]
-	singlekey = true
+  singlekey = true
 [merge]
-	summary = true
+  summary = true
 [merge "bundlelock"]
-	name = lock Gemfile
-	driver = bundle install
+  name = lock Gemfile
+  driver = bundle install
 [merge "bundle"]
-	name = bundle
-	driver = bundle
+  name = bundle
+  driver = bundle
 [merge "railsschema"]
-	name = newer Rails schema version
-	driver = "ruby -e '\n\
-		system %(git), %(merge-file), %(--marker-size=%L), %(%A), %(%O), %(%B)\n\
-		b = File.read(%(%A))\n\
-		b.sub!(/^<+ .*\\nActiveRecord::Schema\\.define.:version => (\\d+). do\\n=+\\nActiveRecord::Schema\\.define.:version => (\\d+). do\\n>+ .*/) do\n\
-		  %(ActiveRecord::Schema.define(:version => #{[$1, $2].max}) do)\n\
-		end\n\
-		File.open(%(%A), %(w)) {|f| f.write(b)}\n\
-		exit 1 if b.include?(%(<)*%L)'"
+  name = newer Rails schema version
+  driver = "ruby -e '\n\
+    system %(git), %(merge-file), %(--marker-size=%L), %(%A), %(%O), %(%B)\n\
+    b = File.read(%(%A))\n\
+    b.sub!(/^<+ .*\\nActiveRecord::Schema\\.define.:version => (\\d+). do\\n=+\\nActiveRecord::Schema\\.define.:version => (\\d+). do\\n>+ .*/) do\n\
+      %(ActiveRecord::Schema.define(:version => #{[$1, $2].max}) do)\n\
+    end\n\
+    File.open(%(%A), %(w)) {|f| f.write(b)}\n\
+    exit 1 if b.include?(%(<)*%L)'"
 [push]
-	default = tracking
+  default = tracking
 [rebase]
-	autosquash = true
+  autosquash = true
+[rerere]
+  enabled = true
 [user]
-	email = dev@hashrocket.com
-	name = "Hashrocket Workstation"
+  email = dev@hashrocket.com
+  name = "Hashrocket Workstation"
