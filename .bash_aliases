@@ -1,3 +1,4 @@
+echo 'aliases'
 source /usr/local/git/contrib/completion/git-completion.bash
 source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 
@@ -45,14 +46,17 @@ alias gbr='git br'
 alias gci='git ci -am'
 alias gcl='git clone'
 alias gco='git co'
+alias gd='git diff'
 alias gdel='git add -u'
 alias gdf='clear; git diff -a -w'
-alias gfull='clear; git status; git add .; git add -u; echo "****************"; git status; git ci -am'
 alias gf='git flow'
+alias gfull='clear; git status; git add .; git add -u; echo "****************"; git status; git ci -am'
 alias git='. ~/.hitch_export_authors && git'
+alias gl='git pull'
 alias glog='clear; git log'
 alias gme='git me'
 alias gmv='git mv'
+alias gp='git push'
 alias gpull='git pull'
 alias gpush='git push'
 alias greset='git reset --hard HEAD && git clean -fd'
