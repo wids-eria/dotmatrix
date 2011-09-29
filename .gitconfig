@@ -62,5 +62,5 @@
 [rerere]
   enabled = true
 [user]
-  email = dev@hashrocket.com
-  name = "Hashrocket Workstation"
+  email = dev@bendyworks.com
+  name = "Bendyworks Pair"

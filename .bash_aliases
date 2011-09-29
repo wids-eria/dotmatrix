@@ -38,6 +38,7 @@ alias q=quit
 
 # Git Commands
 alias gadd='git add .'
+alias gap='git add -p'
 alias gbr='git br'
 alias gci='git ci -am'
 alias gcl='git clone'
