@@ -1,7 +1,3 @@
-echo 'aliases'
-source /usr/local/git/contrib/completion/git-completion.bash
-source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
-
 # Convenience Commands
 alias propane_font='vi +49 /Users/randland/Library/Application\ Support/Propane/styles/cf_chat.css'
 alias hosts='sudo vi /etc/hosts'
