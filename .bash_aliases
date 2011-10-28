@@ -142,22 +142,10 @@ function besdb {
   bundle_command "dbconsole" "$@"
 }
 
-if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
-rvm use 1.9.2@global
-
 hitch() {
   command hitch "$@"
   if [[ -s "$HOME/.hitch_export_authors" ]] ; then source "$HOME/.hitch_export_authors" ; fi
 }
 alias unhitch='hitch -u'
-# Uncomment to persist pair info between terminal instances
-hitch
-
-# Use VI mode in bash
-set -o vi
-
-export RSPEC=true
-export AUTOFEATURE=true
-export RUBYOPT=rubygems
 
 [ ! -f "$HOME/.bash_aliases.local" ] || . "$HOME/.bash_aliases.local"
