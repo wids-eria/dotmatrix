@@ -47,5 +47,6 @@ get_bundle tpope        vim-surround
 get_bundle godlygeek    tabular
 get_bundle tpope        vim-unimpaired
 get_bundle tpope        vim-vividchalk
+get_bundle jpo          vim-railscasts-theme
 
 vim -c 'call pathogen#helptags()|q'

@@ -39,10 +39,11 @@ alias q=quit
 # Git Commands
 alias gadd='git add .'
 alias gap='git add -p'
-alias gbr='git br'
-alias gci='git ci -am'
+alias gbr='git branch'
+alias gc='git commit'
+alias gci='git commit -am'
 alias gcl='git clone'
-alias gco='git co'
+alias gco='git checkout'
 alias gd='git diff'
 alias gdel='git add -u'
 alias gdf='clear; git diff -a -w'
@@ -51,7 +52,7 @@ alias gfull='clear; git status; git add .; git add -u; echo "****************"; 
 alias git='. ~/.hitch_export_authors && git'
 alias gl='git pull'
 alias glog='clear; git log'
-alias gme='git me'
+alias gme='git merge'
 alias gmv='git mv'
 alias gp='git push'
 alias gpull='git pull'
@@ -62,6 +63,7 @@ alias gst='git status'
 alias gtr="git tr"
 alias gtree="git tree"
 alias gtrim="sed -i '' -e 's/[[:space:]]*$//g'"
+alias viuntracked='vi $(git ls-files -o -X .gitignore)'
 
 # Gem Commands
 alias audit='gem list'

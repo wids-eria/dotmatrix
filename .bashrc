@@ -113,4 +113,5 @@ bind '"\en": history-search-forward'
 bind '"\C-w": backward-kill-word'
 
 [ ! -f "$HOME/.bashrc.local" ] || . "$HOME/.bashrc.local"
+export PATH=/usr/local/bin:$PATH
 export PATH=~/bin:$PATH
