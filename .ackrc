@@ -1,0 +1,10 @@
+--type-add
+ruby=.haml,.prawn,.rake,.rsel,.feature,.sass,.coffee
+--ignore-dir=vendor
+--ignore-dir=doc
+--ignore-dir=tmp
+--ignore-dir=log
+--ignore-dir=coverage
+--ignore-dir=metrics
+--ignore-dir=production_data
+--ignore-dir=fixtures
