@@ -115,6 +115,7 @@ bind '"\C-w": backward-kill-word'
 [ ! -f "$HOME/.bashrc.local" ] || . "$HOME/.bashrc.local"
 
 export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
 export PATH=~/bin:$PATH
 export RSPEC=true
 export AUTOFEATURE=true

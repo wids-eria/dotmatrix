@@ -1,6 +1,11 @@
+source /usr/local/git/contrib/completion/git-completion.bash
+source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
+
 # Convenience Commands
 alias propane_font='vi +49 /Users/randland/Library/Application\ Support/Propane/styles/cf_chat.css'
 alias hosts='sudo vi /etc/hosts'
+alias pizza='be slice -a thin'
+alias cain='be slice -a thin candidate'
 
 # Bash Commands
 alias bashedit='vi ~/.bash_aliases'
@@ -10,12 +15,12 @@ alias m=mate
 alias please=sudo
 alias psack='ps aux | ack'
 alias psgrep='ps aux | grep'
-alias rebash='pushd .; source ~/.bash_aliases; popd; c; l'
+alias rebash='START_DIR=`pwd`;cd ..;source ~/.bash_aliases;cd $START_DIR; c; l'
 alias v='mvim'
 alias v.='mvim .'
 
 # Pickler Commands
-alias curtest='cree cucumber FEATURE=$CURTEST'
+alias curtest='cr cucumber FEATURE=$CURTEST'
 alias curpush='pickler push $CURTEST'
 alias curpull='pickler pull $CURTEST'
 alias curstart='pickler start $CURTEST'
@@ -34,7 +39,7 @@ alias e='exit'
 alias l='ls -aFG'
 alias ll='l -l'
 alias q=quit
-
+alias x=exit
 
 # Git Commands
 alias gadd='git add .'
