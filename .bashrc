@@ -129,3 +129,6 @@ hitch
 
 # Use VI mode in bash
 set -o vi
+
+source $(brew --prefix git)/etc/bash_completion.d/git-completion.bash
+source $(brew --prefix)/Library/Contributions/brew_bash_completion.sh
