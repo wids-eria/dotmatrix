@@ -121,8 +121,8 @@ export RSPEC=true
 export AUTOFEATURE=true
 export RUBYOPT=rubygems
 
-if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
-rvm use 1.9.2@global
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+rvm use 1.9.2@global --create
 
 # Uncomment to persist pair info between terminal instances
 hitch
