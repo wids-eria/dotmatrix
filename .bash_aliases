@@ -51,7 +51,6 @@ alias gdel='git add -u'
 alias gdf='clear; git diff -a -w'
 alias gf='git flow'
 alias gfull='clear; git status; git add .; git add -u; echo "****************"; git status; git ci -am'
-alias git='. ~/.hitch_export_authors && git'
 alias gl='git pull'
 alias glog='clear; git log'
 alias gme='git merge'
@@ -146,10 +145,6 @@ function besdb {
   bundle_command "dbconsole" "$@"
 }
 
-hitch() {
-  command hitch "$@"
-  if [[ -s "$HOME/.hitch_export_authors" ]] ; then source "$HOME/.hitch_export_authors" ; fi
-}
 alias unhitch='hitch -u'
 
 [ ! -f "$HOME/.bash_aliases.local" ] || . "$HOME/.bash_aliases.local"

@@ -124,6 +124,11 @@ export RUBYOPT=rubygems
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 rvm use 1.9.2@global --create
 
+hitch() {
+  command hitch "$@"
+  if [[ -s "$HOME/.hitch_export_authors" ]] ; then source "$HOME/.hitch_export_authors" ; fi
+}
+
 # Uncomment to persist pair info between terminal instances
 hitch
 
