@@ -92,8 +92,8 @@ map <silent> <C-Right> :wincmd l<CR>
 map <silent> <C-Z> :retab<CR> :Trim<CR>
 
 " bubble text
-map <C-H> x<Left>P
-map <C-L> xp
+" map <C-H> x<Left>P
+" map <C-L> xp
 map <C-J> ddp
 map <C-K> ddkP
 
@@ -107,6 +107,8 @@ map <silent> <D-6> :tabn 6<CR>
 map <silent> <D-7> :tabn 7<CR>
 map <silent> <D-8> :tabn 8<CR>
 map <silent> <D-9> :tabn 9<CR>
+
+map <silent> <C-H> :%s/:\(\w*\)\s*=>\s*\(\w*\)/\1: \2/g<CR>
 
 if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
