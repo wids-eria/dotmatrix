@@ -42,6 +42,7 @@ set listchars=tab:⇀\ ,trail:␠
 set matchpairs+=<:>
 set modeline
 set modelines=5
+set nowrap
 set ruler
 set shell=bash
 set shiftwidth=2
