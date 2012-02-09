@@ -33,6 +33,8 @@ export PATH=~/bin:$PATH
        YELLOW="\[\033[0;33m\]"
         GREEN="\[\033[0;32m\]"
          BLUE="\[\033[0;34m\]"
+      MAGENTA="\[\033[0;35m\]"
+         CYAN="\[\033[0;36m\]"
     LIGHT_RED="\[\033[1;31m\]"
   LIGHT_GREEN="\[\033[1;32m\]"
         WHITE="\[\033[1;37m\]"
@@ -40,6 +42,18 @@ export PATH=~/bin:$PATH
    COLOR_NONE="\[\e[0m\]"
          GRAY="\[\033[1;30m\]"
 
+  function rvm_ruby {
+    ruby_version="$(rvm-prompt u)"
+    if [[ -z "$ruby_version" ]]; then
+      echo ""
+    else
+      echo "$ruby_version"
+    fi
+  }
+
+  function rvm_gemset {
+    echo "$(rvm-prompt g)"
+  }
   # Get the current git branch, if there is one
   function parse_git_branch {
     \git rev-parse --git-dir &> /dev/null
@@ -63,18 +77,22 @@ export PATH=~/bin:$PATH
     fi
     if [[ ${git_status} =~ ${branch_pattern} ]]; then
       branch=${BASH_REMATCH[1]}
-      echo " (${branch})${remote}${state}"
+      echo " ${CYAN}(${branch}${MAGENTA}$(rvm_gemset)${CYAN})${remote}${state}"
+    else
+      if [[ ! -z "$(rvm_gemset)" ]]; then
+        echo " ${CYAN}(${MAGENTA}$(rvm_gemset)${CYAN})"
+      fi
     fi
   }
 
   function prompt_func {
     previous_return_value=$?;
-    prompt="${TITLEBAR}${LIGHT_GRAY}\w${YELLOW}$(parse_git_branch)${COLOR_NONE}"
+    prompt="${TITLEBAR}${LIGHT_GRAY}\w$(parse_git_branch)${COLOR_NONE}"
     if test $previous_return_value -eq 0
     then
-      PS1="${GREEN}➜ ${COLOR_NONE}${prompt}${GREEN} \$${COLOR_NONE} "
+      PS1="${GREEN}$(rvm_ruby) ${COLOR_NONE}${prompt}${GREEN} \$${COLOR_NONE} "
     else
-      PS1="${RED}➜ ${COLOR_NONE}${prompt}${RED} \$${COLOR_NONE} "
+      PS1="${RED}$(rvm_ruby) ${COLOR_NONE}${prompt}${RED} \$${COLOR_NONE} "
     fi
     # set_window_and_tab_title "${PWD##*/}"
   }
@@ -83,15 +101,15 @@ export PATH=~/bin:$PATH
   PROMPT_COMMAND=prompt_func
 
 [ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
-rvm use 1.9.2@global --create
+# rvm use 1.9.2@global --create
 
-hitch() {
-  command hitch "$@"
-  [ -s "$HOME/.hitch_export_authors" ] && . "$HOME/.hitch_export_authors"
-}
+#hitch() {
+#  command hitch "$@"
+#  [ -s "$HOME/.hitch_export_authors" ] && . "$HOME/.hitch_export_authors"
+#}
 
 # Persist pair info between terminal instances
-hitch
+# hitch
 
 [ -f "$HOME/.bash_profile.local" ] && . "$HOME/.bash_profile.local"
 [ -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"

@@ -62,5 +62,5 @@
 [rerere]
   enabled = true
 [user]
-  email = dev@bendyworks.com
-  name = "Bendyworks Pair"
+	email = change@me.org
+	name = "Change Me"

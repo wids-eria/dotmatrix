@@ -26,7 +26,7 @@ endif
 
 syntax on
 filetype plugin indent on
-colorscheme vividchalk
+colorscheme molokai
 
 set autoindent
 set background=dark
@@ -42,7 +42,6 @@ set listchars=tab:⇀\ ,trail:␠
 set matchpairs+=<:>
 set modeline
 set modelines=5
-set nowrap
 set ruler
 set shell=bash
 set shiftwidth=2
